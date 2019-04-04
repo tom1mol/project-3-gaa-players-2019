@@ -5,7 +5,7 @@ i set up an account in Mongodb and Heroku. and made a basic database in mongo to
 Download and install MongoDB client 4.0.6 for Atlas
 wget -q https://git.io/fh7vV -O /tmp/setupmongodb.sh && source /tmp/setupmongodb.sh
 
-
+go to settings and set python to python3(was auto set to python2)
                                                 ==========
 deploy app to heroku                                                        https://youtu.be/15HJAVSID6A
 
@@ -72,6 +72,8 @@ value = mongodb+srv://shoot:<password>@myfirstcluster-ojgpn.mongodb.net/project-
 now paste this into app.py under:                               #(under app = Flask(__name__))
 app.config["MONGO_DBNAME"] = 'project3-GAA-Players-2019-centric'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
+
+
 
 
 
