@@ -5,6 +5,9 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
+app.config["MONGO_DBNAME"] = 'project3-GAA-Players-2019-centric'
+app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
+
 
 @app.route('/')
 def hello():

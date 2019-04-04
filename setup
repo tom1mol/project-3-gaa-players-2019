@@ -40,6 +40,42 @@ sudo pip3 install dnspython             #for using new style connection string f
 
 had to delete and reinstall requirements.txt as it hadnt populated with dnspython,pymongo etc
 
+                                                    
+did a commit to git repo
+
+in mongo..went to security-add new user and added user/pass
+then ipwhitelist...allow access from anywhere
+
+now we go to mongo to get our connection string:
+overview-connection-connect your application.... and copy the connection string:
+mongodb+srv://shoot:<password>@myfirstcluster-ojgpn.mongodb.net/test?retryWrites=true
+this is then pasted into quote on line 81 above(app.config["MONGO_URI"] = '') and then pasted into app.py
+                                                    ==========
+
+now open new command line:
+type: cd ..                         #to go up a level
+type: nano .bashrc                  #to open nano
+
+go down a few lines and paste in:
+export MONGO_URI="mongodb+srv://shoot:<password>@myfirstcluster-ojgpn.mongodb.net/project-3-GAA-Players-2019?retryWrites=true"
+        ###dont forget to put password in
+now ctrl x to exit....y to save...enter to return to bash
+
+close bash and open again
+
+now type: echo $MONGO_URI                   #and it prints out the connection
+
+go to settings in HEROKU - reveal config vars and put in new key and values:
+key = MONGO_URI
+value = mongodb+srv://shoot:<password>@myfirstcluster-ojgpn.mongodb.net/project-3-GAA-Players-2019?retryWrites=true 
+
+now paste this into app.py under:                               #(under app = Flask(__name__))
+app.config["MONGO_DBNAME"] = 'project3-GAA-Players-2019-centric'
+app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
+
+
+
+
 
 
 
