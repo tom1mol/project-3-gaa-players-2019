@@ -1,0 +1,45 @@
+i set up an account in Mongodb and Heroku. and made a basic database in mongo to start the project
+
+-installed flask: sudo pip3 install flask
+
+Download and install MongoDB client 4.0.6 for Atlas
+wget -q https://git.io/fh7vV -O /tmp/setupmongodb.sh && source /tmp/setupmongodb.sh
+
+
+                                                ==========
+deploy app to heroku                                                        https://youtu.be/15HJAVSID6A
+
+-heroku login--email and pass
+-check apps in heroku ---heroku apps
+
+git init --initialise git repo
+
+git add .
+git commit -m"initial commit"
+heroku git:remote -a project-3-gaa-players-2019
+git push heroku master                              (failed...no requirements.txt)
+sudo pip3 freeze --local > requirements.txt
+git add .
+git commit -m"added requirements.txt"
+git push heroku master                              (failed..missing procfile(file used to call app))
+echo web: python app.py > Procfile          (procfile is an instruction to heroku as to which file is used as èntry point to app)
+git add .
+git commit -m"added Procfile"
+git push heroku master
+
+heroku ps:scale web=1                   #command to heroku to get up and running
+go to heroku -- settings -- config vars and set:
+IP = 0.0.0.0 and PORT = 5000
+                                                    =========
+                                                    
+CONNECTING FLASK TO MONGODB ATLAS                                               https://youtu.be/Lh6Lj9Lsc2k
+
+now we install pymongo and dnspython:
+sudo pip3 install flask-pymongo
+sudo pip3 install dnspython             #for using new style connection string for mongodb atlas
+
+had to delete and reinstall requirements.txt as it hadnt populated with dnspython,pymongo etc
+
+
+
+
