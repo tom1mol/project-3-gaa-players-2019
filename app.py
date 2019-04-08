@@ -9,6 +9,8 @@ app.config["MONGO_DBNAME"] = 'project3-GAA-Players-2019-centric'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 
+mongo = PyMongo(app)        #instance of PyMongo..with app added in
+
 @app.route('/')
 def hello():
     return 'fuck off'
